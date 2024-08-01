@@ -1,6 +1,6 @@
-package com.greedy.level01.basic;
+package chap01;
 
-public class Application2 {
+public class BasicApplication2 {
     public static void main(String[] args) {
         double width = 12.5;
         double height = 36.4;

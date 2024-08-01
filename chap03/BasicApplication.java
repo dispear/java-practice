@@ -1,6 +1,6 @@
-package com.greedy.level01.basic;
+package chap03;
 
-public class Application {
+public class BasicApplication {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
 

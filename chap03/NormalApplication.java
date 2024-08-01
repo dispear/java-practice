@@ -1,6 +1,6 @@
-package com.greedy.level02.normal;
+package chap03;
 
-public class Application {
+public class NormalApplication {
     public static void main(String[] args) {
         //첫 번째 인자의 최소값 부터 두 번쨰 인자까지 범위의 난수를 출력 (randomNumber 호출)
         System.out.println(RandomMaker.randomNumber(-100,100));

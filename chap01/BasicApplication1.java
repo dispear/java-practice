@@ -1,6 +1,6 @@
-package com.greedy.level01.basic;
+package chap01;
 
-public class Application1 {
+public class BasicApplication1 {
     public static void main(String[] args) {
         int num1 = 20;
         int num2 = 30;
