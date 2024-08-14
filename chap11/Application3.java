@@ -12,32 +12,34 @@ public class Application3 {
 //        3 번째 파일 이름 입력 : test3.txt
 //        병합 될 파일명 입력 : result.txt
 //        파일 병합이 완료 되었습니다.
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+
         System.out.print("병합할 파일의 개수 입력 : ");
-        int n = sc.nextInt();
-        String[] str = new String[n];
+        int numberOfFiles = scanner.nextInt();
+        scanner.nextLine();
 
-        for(int  i = 1; i <= n; i++){
-            System.out.print( i + " 번째 파일 이름 입력 : ");
-            str[i-1] = sc.next();
+        String[] fileNames = new String[numberOfFiles];
+        for (int i = 0; i < numberOfFiles; i++) {
+            System.out.print((i + 1) + " 번째 파일 이름 입력 : ");
+            fileNames[i] = scanner.nextLine();
         }
+
         System.out.print("병합 될 파일명 입력 : ");
-        String s = sc.next();
+        String destinationFile = scanner.nextLine();
 
-        try(BufferedReader br = new BufferedReader(new FileReader(Arrays.toString(str)));
-            BufferedWriter bw = new BufferedWriter(new FileWriter(s))){
-
-            String temp = null;
-            while((temp = br.readLine()) != null){
-                bw.write(br.readLine());
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(destinationFile))) {
+            for (String fileName : fileNames) {
+                try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        writer.write(line);
+                        writer.newLine();
+                    }
+                }
             }
-
             System.out.println("파일 병합이 완료 되었습니다.");
-        } catch (FileNotFoundException e) {
-            System.out.println("오류 : "+ str +" (지정된 파일을 찾을 수 없습니다)");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("오류 : "+ str +" (지정된 파일을 찾을 수 없습니다)");
         }
-
     }
 }
